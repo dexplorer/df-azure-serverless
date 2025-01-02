@@ -1,0 +1,35 @@
+leaf_cfg: cfg6
+leaf_cfg_file_name: cfg6.yml
+
+pattern: extract
+
+outbound_data_file:
+  storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+  internal_blob_container: out-delivery
+  internal_blob_consumer_folder: consumer1
+  internal_blob_placeholder_pattern: completed_trips_{business_date}.dat
+  internal_blob_placeholders:
+    business_date: resolve
+  blob_placeholder_pattern: out-consumer/completed_trips_business_date.dat
+  blob_placeholders:
+    - business_date: yyyymmdd
+
+outbound_control_file:
+  storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+  blob_placeholder_pattern: out-consumer/completed_trips_business_date.ctl
+  blob_placeholders:
+    - business_date: yyyymmdd
+
+outbound_trigger_file:
+  storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+  blob_placeholder_pattern: out-consumer/completed_trips_business_date.rdy
+  blob_placeholders:
+    - business_date: yyyymmdd
+
+process:
+  type: extractByPipeline
+  parameters: 
+    pipeline_name: createExtract
+    pipeline_parameters:
+      parm1: 1
+      parm2: 2

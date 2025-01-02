@@ -1,0 +1,17 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "allCfg",
+      "type": "activityTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "EVENT_GRID_TOPIC_URI",
+      "topicKeySetting": "EVENT_GRID_TOPIC_ACCESS_KEY",
+      "direction": "out"
+    }
+  ]
+}

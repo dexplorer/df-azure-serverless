@@ -1,0 +1,15 @@
+leaf_cfg: cfg3
+leaf_cfg_file_name: cfg3.yml
+
+pattern: ingest
+
+inbound_file:
+  business_date_regex_pattern: .+_([0-9]{8})\.dat
+
+process:
+  type: ingestByPipeline
+  parameters: 
+    pipeline_name: runSimplePipeline
+    pipeline_parameters:
+      parm1: 1
+      parm2: 2

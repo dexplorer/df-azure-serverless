@@ -1,0 +1,19 @@
+inbound_files:
+  - storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+    blob_regex_pattern: in\-data\-source\/sample_[0-9]{8}\.dat
+    cfg: cfg1.yml
+
+  - storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+    blob_regex_pattern: in\-data\-source\/sample2_[0-9]{8}\.dat
+    cfg: cfg2.yml
+
+  - storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+    blob_regex_pattern: in\-data\-source\/sample3_[0-9]{8}\.dat
+    cfg: cfg3.yml
+    
+  - storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+    blob_regex_pattern: in\-data\-source\/trips_[0-9]{8}\.dat
+    cfg: cfg4.yml
+
+outbound_files:
+  - cfg: cfg6.yml

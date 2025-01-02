@@ -1,0 +1,7 @@
+.git*
+.vscode
+local.settings.json
+tests
+.venv
+sample_files
+sample_config

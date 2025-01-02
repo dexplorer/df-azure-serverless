@@ -1,0 +1,22 @@
+# DO NOT include azure-functions-worker in this file
+# The Python Worker is managed by Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+azure-functions
+# data factory
+azure-mgmt-resource
+azure-mgmt-datafactory
+# key vault and credentials
+azure-identity
+azure-keyvault-secrets
+# blob access
+azure-storage-blob==2.1.0
+# yaml
+pyyaml
+# durable function
+azure-functions-durable
+# table storage access
+azure-data-tables
+# time zone
+#pytz
+python-dateutil

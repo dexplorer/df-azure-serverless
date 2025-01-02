@@ -1,0 +1,19 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "myblob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "in-data-source/{name}",
+      "connection": "P19_STORAGE_ACCOUNT_CONNECTION_STRING"
+    },
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "EVENT_GRID_TOPIC_URI",
+      "topicKeySetting": "EVENT_GRID_TOPIC_ACCESS_KEY",
+      "direction": "out"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+leaf_cfg: cfg5
+leaf_cfg_file_name: cfg5.yml
+
+pattern: transform
+
+process:
+  type: transformByPipeline
+  parameters: 
+    pipeline_name: runTransform
+    pipeline_parameters:
+      parm1: 1
+      parm2: 2

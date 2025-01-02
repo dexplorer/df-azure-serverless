@@ -1,0 +1,68 @@
+tasks:
+  - type: checkFileIntegrity
+    activity_function: CheckFileIntegrity
+  - type: reconTotals
+    activity_function: ReconTotals
+  - type: checkDataQuality
+    activity_function: CheckDataQuality
+  - type: checkOldFile
+    activity_function: CheckOldFile
+  - type: ingestByPipeline
+    orchestration_function: OrchestrateIngestion
+    activity_function: RunPipeline
+  - type: transformByPipeline
+    orchestration_function: OrchestrateTransform
+    activity_function: RunPipeline
+  - type: extractByPipeline
+    orchestration_function: OrchestrateExtraction
+    activity_function: RunPipeline
+  - type: logState
+    activity_function: CreateLogStateEvent
+  - type: createControlFile
+    activity_function: CreateControlFile
+  - type: createTriggerFile
+    activity_function: CreateTriggerFile
+
+pre_ingestion_tasks:
+  - type: checkFileIntegrity
+    run: yes
+    required: yes
+  - type: reconTotals
+    run: no
+    required: no
+  - type: checkDataQuality
+    run: yes
+    required: no
+  - type: checkOldFile
+    run: no
+    required: no
+
+post_extraction_tasks:
+  - type: checkDataQuality
+    run: yes
+    required: no
+  - type: createControlFile
+    run: no
+    required: no
+  - type: createTriggerFile
+    run: no
+    required: no
+
+logging_tasks:
+  - type: logState
+    run: yes
+    required: yes
+
+extracts:
+  storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+  internal_blob_placeholder_pattern: out-delivery/extract_business_date_run_timestamp.dat
+  internal_blob_placeholders:
+    - business_date: yyyymmdd
+    - run_timestamp: yyyymmddhhmiss
+
+logs:
+  storage_account_name_setting: P19_STORAGE_ACCOUNT_NAME
+
+monitor:
+  minutes_to_monitor: 10
+  minutes_to_sleep: 5

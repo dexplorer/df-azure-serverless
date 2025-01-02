@@ -1,0 +1,15 @@
+leaf_cfg: cfg1
+leaf_cfg_file_name: cfg1.yml
+
+pattern: ingest
+
+inbound_file:
+  business_date_regex_pattern: .+_([0-9]{8})\.dat
+
+process:
+  type: ingestByPipeline
+  parameters: 
+    pipeline_name: loadManagedTable
+    pipeline_parameters:
+      parm1: 1
+      parm2: 2
